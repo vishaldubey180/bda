@@ -1,0 +1,96 @@
+CRUD:
+
+1. Create/Use database
+
+    use college
+
+2. Create Collection (Table)
+
+    db.createCollection("student")
+
+3. insert one 
+
+    db.student.insertOne({Name: "abc", Age: 25})
+
+4. insert many
+
+    db.student.insertMany([{Name: "xyz", Age: 30}, {Name: "123", Age: 40}])
+
+5. find all
+
+    db.student.find()
+
+6. find one
+
+    db.student.findOne()
+
+7. find all/one where name = xyz
+
+    db.student.find({Name: "xyz"})
+
+8. update all/one age of student with name xyz
+
+    db.student.updateMany({Name: "xyz"}, {$set: {Age: 45}})
+
+9. delete
+
+    db.student.deleteMany({Name: "xyz"})
+
+10. drop Collection
+
+    db.student.drop()
+
+11. age greater than 25
+
+    db.student.find({Age: {$gt: 25}})
+
+12. name = xyz and age less than 30
+
+    db.student.find({$and: [{Name: "xyz", Age: {$lt: 30}}]})
+
+
+Aggregate:
+
+1. match with name
+
+    db.student.aggregate([{$match: {Name: "xyz"}}])
+
+2. group by name count
+
+    db.student.aggregate([{$group: {_id: "$Name", count: {$sum:1}}}])
+
+3. sort by age ascending
+
+    db.student.aggregate([{$group: {_id: "$Name", count: {$sum:1}}}, {$sort: {Age: 1}}])
+
+4. sort by both name and age
+
+    db.student.aggregate([{$group: {_id: "$Name", count: {$sum:1}}}, {$sort: {Name: 1, Age: 1}}])
+
+5. limit to 2 records
+
+    db.student.find().limit(2)
+
+6. skip 2 records
+    
+    db.student.find().skip(2)
+
+7. select only name in aggregate
+
+    db.student.aggregate([{$project: {Name: 1}}, {$sort: {Age: 1}}])
+
+8. log base 10
+
+    db.student.aggregate([{$project: {Name: 1, logValue:{$log: ["$Age", 10]}}}])
+
+9. mod of age
+
+    db.student.aggregate([{$mod: ["$Age"]}])
+
+10. truncate name to 2 chars
+
+    db.student.aggregate([{$project: {Name: 1, NameTrunc: {$trunc: ["$Name", 2]}}}])
+
+11. get size of name
+
+    db.student.aggregate([{$project: {Name: 1, NameSize: {$size: ["$Name"]}}}])

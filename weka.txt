@@ -1,0 +1,33 @@
+Supervised:
+
+1. Decision Tree: weather.numeric > Classify > trees/J48 > Start > Visualize Decision Treee
+
+2. Logistic: ionosphere > Classify > functions/Logistic > Start > Visualize Classifier Errors
+
+3. KNN: ionosphere > Classify > functions/SMO > Start
+
+4. IBK: ionoshpere > Classify > lazy/IBK > Start > View Threshold Curve
+
+5. SMO: ionosphere > Classify > functions/SMO > Start
+
+6. Naive Bayes: ionosphere > Classify > bayes/NaiveBayes > Start > Visualize Margin Curve
+
+
+Un-Supervised:
+
+Clustering:
+
+1. EM: iris > Cluster > EM > Start > Visualize Cluster Assignments
+
+2. Hierarchical: iris > Cluster > HierarchicalClusterer > Start > Visualize Cluster Assignments
+
+3. Density-Based: iris > Cluster > MakeDensityBasedClusterer > Start > Visualize Cluster Assignments
+
+4. Simple K-Means: iris > Cluster > SimpleKMeans > Start > Visualize Cluster Assignments
+
+
+Association:
+
+1. Apriori: supermarket > Associate > Apriori > Start
+
+Feature Extraction: labor > Select attributes > CfsSubsetEval, BestFirst > Start > Visualize Reduced Data > Associate > Apriori
